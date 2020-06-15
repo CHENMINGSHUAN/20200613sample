@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./NO01.css">
+</head>
+
+<body>
+    <div class="background">
+        <div class="con">
+            <img src="./img2/pink.png" alt="">
+        </div>
+
+
+        <div class="half">
+            <div>
+                <!-- <div id="katsu"></div> -->
+                <div id="com"></div>
+                <div id="echo"></div>
+            </div>
+            <div class="img">
+                <div class="text">
+                    <p class="li-none" id="Txt" style="display: none;">
+                        じゃんけんしましょう！
+                    </p>
+
+                    <div class="img_img">
+                        <img src="./img2/未命名-9.png" alt="">
+                        <img id="fish" src="./img2/素材人魚.png" alt="" height="387px" width="500px">
+                    </div>
+                    <div class="show">
+                        <p class="show_txt" id="TxtShow"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pull">
+            <img id="pull_1" src="./img2/石頭.png" alt="" height="187" width="150">
+            <img id="pull_2" src="./img2/剪刀.png" alt="" height="187" width="150">
+            <img id="pull_3" src="./img2/布.png" alt="" height="187" width="150">
+        </div>
+
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+    <script>
+        $(function () {
+            let counter = 0;
+           
+            $('#pull_1').on('click', function () {
+                const result = ["チョキ", "パー", "グ"];
+                const number = Math.floor(Math.random() * 3);
+                $("#com").text("私の出し手は" + result[number] + "です。");
+                if (number == 0) {
+
+                    $("#echo").text("良かった！あなたの勝ちです。");
+                    $("#echo").css("color", "gold");
+                    $("#fish").attr("src", "./img2/素材人魚3.png");
+                    counter++
+                    console.log(counter);
+                     if (counter >= 3) {
+                        $("#katsu").text("おめでとうございます！");
+                    }
+                } else if (number == 1) {
+                    $("#echo").text("あら！あなたの負けです。");
+                    $("#echo").css("color", "saddlebrown");
+                    $("#fish").attr("src", "./img2/素材人魚4.png");
+                } else if (number == 2) {
+                    $("#echo").text("あいこです！");
+                    $("#echo").css("color", "olive");
+                    $("#fish").attr("src", "./img2/素材人魚2.png");
+                }
+            })
+            $('#pull_2').on('click', function () {
+                const result = ["パー", "グ", "チョキ"];
+                const number = Math.floor(Math.random() * 3);
+                $("#com").text("私の出し手は" + result[number] + "です。");
+                if (number == 0) {
+                    $("#echo").text("良かった！あなたの勝ちです。");
+                    $("#echo").css("color", "gold");
+                    $("#fish").attr("src", "./img2/素材人魚3.png");
+                    counter++
+                    console.log(counter);
+                     if (counter >= 3) {
+                        $("#katsu").text("おめでとうございます！");
+                    }
+                } else if (number == 1) {
+                    $("#echo").text("あら！あなたの負けです。");
+                    $("#echo").css("color", "saddlebrown");
+                    $("#fish").attr("src", "./img2/素材人魚4.png");
+                } else if (number == 2) {
+                    $("#echo").text("あいこです。");
+                    $("#echo").css("color", "olive");
+                    $("#fish").attr("src", "./img2/素材人魚2.png");
+                }
+            })
+            $('#pull_3').on('click', function () {
+                const result = ["グ", "チョキ", "パー"];
+                const number = Math.floor(Math.random() * 3);
+                $("#com").text("私の出し手は" + result[number] + "です。");
+
+                if (number == 0) {
+                    $("#echo").text("良かった！あなたの勝ちです。");
+                    $("#echo").css("color", "gold");
+                    $("#fish").attr("src", "./img2/素材人魚3.png");
+                    counter++
+                    console.log(counter);
+                     if (counter >= 3) {
+                        $("#katsu").text("おめでとうございます！");
+                    }
+                } else if (number == 1) {
+                    $("#echo").text("あら！あなたの負けです。");
+                    $("#echo").css("color", "saddlebrown");
+                    $("#fish").attr("src", "./img2/素材人魚4.png");
+                } else if (number == 2) {
+                    $("#echo").text("あいこです。");
+                    $("#echo").css("color", "olive");
+                    $("#fish").attr("src", "./img2/素材人魚2.png");
+
+                }
+
+            })
+
+
+            let Txt = document.getElementById('Txt'),
+                TxtShow = document.getElementById('TxtShow'),
+                i = 0;
+            timer = setInterval(function () {
+                TxtShow.innerHTML = Txt.innerHTML.substring(0, i);
+                i++;
+                if (TxtShow.innerHTML == Txt.innerHTML) {
+                    clearInterval(timer);
+                };
+            }, 100);
+
+
+        });
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
